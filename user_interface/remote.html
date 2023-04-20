@@ -6,17 +6,19 @@ Created by: Jitesh Saini
 <head>        
    <title>Remote</title>  
    <link href="remote.css" rel="stylesheet" type="text/css">  
-   <script src=""></script>  
-   <script src=""></script>  
-             
+   <script src="remote.js"></script>
 </head> 
 
-<body>
+<body onkeydown="myFunction(event)">
+
+	<! -- Testing output -->
+	<p id="demo"></p>
+	<p id="direct"></p>
 
 	<div id="menu_bar" class="robot">
 		<a href="#" id="Home page" class="active"></a>
 		<a href="#" id=" View Robot"></a> 
-	</div>>
+	</div>
 		<!-- =============Range Slider for speed==============================================-->
 		<div class='box_row'>
 	
@@ -39,17 +41,17 @@ Created by: Jitesh Saini
 <div align="center" id='box_outer'>
 	<!-- =================Direction Buttons=================================================== -->
 	<div class='box_row'>
-		<input  class="button"  type="submit" onclick="button_direction('f');" value="FWD"/>
+		<input  class="button"  type="submit" onclick="button_direction('f')" value="FWD"/>
 	</div>
 	<br />
 	<div class='box_row'>
-		<input class="button" style="float:left" type="submit" onclick="button_direction('l');" value="LEFT"/>
-		<input class="button" type="submit" onclick="button_direction('s');" value="STOP"/>
-		<input  class="button" style="float:right" type="submit" onclick="button_direction('r');" value="RIGHT"/>
+		<input class="button" style="float:left" type="submit" onclick="button_direction('l')" value="LEFT"/>
+		<input class="button" type="submit" onclick="button_direction('s')"; value="STOP"/>
+		<input  class="button" style="float:right" type="submit" onclick="button_direction('r')" value="RIGHT"/>
 	</div>
 	<br />
 	<div class='box_row'>
-			<input  class="button" type="submit" onclick="button_direction('b');" value="BACK"/>
+			<input  class="button" type="submit" onclick="button_direction('b')" value="BACK"/>
 	</div>
 	<!-- ================================================================================= -->
 	
