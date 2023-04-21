@@ -3,33 +3,27 @@
 function buttonPressInput(event) {
     event.preventDefault();
     let key = event.key;
-    let text;
+
     if (key == "ArrowDown" || key == "s" || key == "S") {
-        text = "You pressed to go backwards!";
         document.getElementById("b_button").style.backgroundColor = "#1ad1ff";
         document.getElementById("s_button").style.backgroundColor = "#3709ef";
-        button_direction('f');
+        button_direction('b');
     } else if (key == "ArrowUp" || key == "w" || key == "W") {
-        text = "You pressed to go forwards!";
         document.getElementById("f_button").style.backgroundColor = "#1ad1ff";
         document.getElementById("s_button").style.backgroundColor = "#3709ef";
-        button_direction('b');
+        button_direction('f');
     } else if (key == "ArrowLeft" || key == "a"|| key == "A") {
-        text = "You pressed to go left!";
         document.getElementById("l_button").style.backgroundColor = "#1ad1ff";
         document.getElementById("s_button").style.backgroundColor = "#3709ef";
         button_direction('l');
     } else if (key == "ArrowRight" || key == "d"|| key == "D") {
-        text = "You pressed to go right!";
         document.getElementById("r_button").style.backgroundColor = "#1ad1ff";
         document.getElementById("s_button").style.backgroundColor = "#3709ef";
         button_direction('r');
     } else if (key == " "){
-        text = "You pressed to stop!";
         document.getElementById("s_button").style.backgroundColor = "#1ad1ff";
         button_direction('s');
     }
-    document.getElementById("direct_demo").innerHTML = text;
 
 }
 
@@ -48,6 +42,8 @@ function buttonReleaseRecolour(event){
         }
 
     }
+
+    button_direction('s');
 }
 // --------------------------------------- Add integrations into functions below ----------------------------------------------------
 
