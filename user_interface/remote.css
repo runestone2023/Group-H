@@ -19,9 +19,9 @@ background-color:#3709ef;
 font-size: 20px;
 }
 
-#box_outer input[type="submit"]:hover {
+/*#box_outer input[type="submit"]:hover {
   background: #1ad1ff;
-}
+}*/
 
 /*------------slider-----------------------*/
 .slidecontainer {

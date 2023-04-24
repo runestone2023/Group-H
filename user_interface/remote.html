@@ -4,12 +4,12 @@ Created by: Jitesh Saini
 -->
 <html>
 <head>        
-   <title>Remote</title>  
-   <link href="remote.css" rel="stylesheet" type="text/css">  
-   <script src="remote.js"></script>
+   	<title>Remote</title>
+   	<link href="remote.css" rel="stylesheet" type="text/css">
+   	<script src="remote.js"></script>
 </head> 
 
-<body onkeydown="buttonPressInput(event)" onkeyup="buttonReleaseRecolour(event)">
+<body onkeydown="keyPressInput(event)" onkeyup="keyReleaseRecolour(event)">
 
 	<! -- Testing output -->
 	<p id="direct_demo"></p>
@@ -28,17 +28,16 @@ Created by: Jitesh Saini
 	<div align="center" id='box_outer'>
 		<!-- =================Direction Buttons=================================================== -->
 		<div class='box_row'>
-			<input  class="button" id="f_button" type="submit" onclick="button_direction('f')" value="FWD"/>
+			<input  class="button" id="f_button" type="submit" onmousedown="buttonPressInput('f_button', 'f')" onmouseup="buttonReleaseInput('f_button')" value="FWD"/>
 		</div>
 		<br />
 		<div class='box_row'>
-			<input class="button" id="l_button" style="float:left" type="submit" onclick="button_direction('l')" value="LEFT"/>
-			<input class="button" id="s_button" type="submit" onclick="button_direction('s')"; value="STOP"/>
-			<input  class="button" id="r_button" style="float:right" type="submit" onclick="button_direction('r')" value="RIGHT"/>
+			<input class="button" id="l_button" style="float:left" type="submit" onmousedown="buttonPressInput('l_button', 'l')" onmouseup="buttonReleaseInput('l_button')" value="TURN LEFT"/>
+			<input  class="button" id="r_button" style="float:right" type="submit" onmousedown="buttonPressInput('r_button', 'r')" onmouseup="buttonReleaseInput('r_button')" value="TURN RIGHT"/>
 		</div>
 		<br />
 		<div class='box_row'>
-				<input  class="button" id="b_button" type="submit" onclick="button_direction('b')" value="BACK"/>
+				<input  class="button" id="b_button" type="submit" onmousedown="buttonPressInput('b_button', 'b')" onmouseup="buttonReleaseInput('b_button')" value="BACK"/>
 		</div>
 		<!-- ================================================================================= -->
 
