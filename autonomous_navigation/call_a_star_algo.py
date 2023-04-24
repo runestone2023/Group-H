@@ -15,4 +15,6 @@ import subprocess
 # data
 # print(numpydata)
 
-subprocess.call(" python Implementation-of-A-Algorithm-Visualization-via-Pyp5js-\AStar.py -c 25 -r 25 -s 1 -q 3 -e 23 -t 21 -l True", shell=True)
+# subprocess.call(" python Implementation-of-A-Algorithm-Visualization-via-Pyp5js-\AStar.py -c 25 -r 25 -s 1 -q 3 -e 23 -t 21 -l True", shell=True)
+
+subprocess.call(" python A_star_algo\AStar.py -c 25 -r 25 -s 1 -q 3 -e 23 -t 21 -l True", shell=True)
