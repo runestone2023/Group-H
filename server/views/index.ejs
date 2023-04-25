@@ -12,12 +12,16 @@
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script>
       var socket = io();
-    
-      var mv_forward = function(){
-        socket.emit('forward',{msg:'move forward'}, (response) => {
+
+      var mv_forward = () => {
+        socket.emit('forward_UI', 'fwd', (response) => {
           console.log(response.status);
         });
       }
+
+      socket.on('connect', () => {
+        socket.send('UI');
+      });
     
       socket.on('serverMsg',function(msg){
         console.log(msg);

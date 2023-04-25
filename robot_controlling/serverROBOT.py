@@ -22,16 +22,16 @@ while(True):
     clientMsg = "Message from Client:{}".format(message)
     clientIP  = "Client IP Address:{}".format(address)
 
-    if clientMsg == "w":
+    if clientMsg == "f":
       print("move forward!")
-    elif clientMsg == "a":
+    elif clientMsg == "l":
       print("move left!")
-    elif clientMsg == "d":
+    elif clientMsg == "r":
       print("move right!")
-    elif clientMsg == "s":
+    elif clientMsg == "b":
       print("move backwards")
-    elif clientMsg == "q":
-      print("quit!")
+    elif clientMsg == "s":
+      print("stop!")
     else:
       print("unrecognized message %s" % clientMsg)
 
