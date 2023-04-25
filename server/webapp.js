@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var app = express();
 var serv = require('http').Server(app);
 
@@ -24,7 +25,7 @@ io.sockets.on('connection', function(socket){
  
 	socket.on('forward',function(data, callback){
 		console.log(data);
-
+    fs.appendFileSync('test', 'move forward\n');
     //
     callback({
       status: "ok"
