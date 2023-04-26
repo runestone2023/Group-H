@@ -68,7 +68,7 @@ io.on('connection', (socket) => {
 
   socket.on('right_UI', (data, callback) => {
 
-    socket.to(robot).emit('left_robot', 'rgt');
+    socket.to(robot).emit('right_robot', 'rgt');
 
     callback({
       status: "ok"
@@ -78,7 +78,7 @@ io.on('connection', (socket) => {
 
   socket.on('backwards_UI', (data, callback) => {
 
-    socket.to(robot).emit('backwards_UI', 'bck');
+    socket.to(robot).emit('backwards_robot', 'bck');
 
     callback({
       status: "ok"
