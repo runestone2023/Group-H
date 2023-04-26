@@ -56,6 +56,45 @@ io.on('connection', (socket) => {
     });
 	});
 
+  socket.on('left_UI', (data, callback) => {
+
+    socket.to(robot).emit('left_robot', 'lft');
+
+    callback({
+      status: "ok"
+    });
+	});
+
+
+  socket.on('right_UI', (data, callback) => {
+
+    socket.to(robot).emit('left_robot', 'rgt');
+
+    callback({
+      status: "ok"
+    });
+	});
+
+
+  socket.on('backwards_UI', (data, callback) => {
+
+    socket.to(robot).emit('backwards_UI', 'bck');
+
+    callback({
+      status: "ok"
+    });
+	});
+
+
+	socket.on('stop_UI', (data, callback) => {
+
+    socket.to(robot).emit('stop_robot', 'stop');
+
+    callback({
+      status: "ok"
+    });
+	});
+
   socket.emit('serverMsg', 'hello');
 
   socket.on('disconnect', () => {

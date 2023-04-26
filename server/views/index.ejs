@@ -8,10 +8,39 @@
   </head>
   <body>
     <button onclick="mv_forward()">forward</button>
+    <button onclick="mv_left()">left</button>
+    <button onclick="mv_right()">right</button>
+    <button onclick="mv_backwards()">backwards</button>
+    <button onclick="stop()">stop</button>
+
 
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script>
       var socket = io();
+
+      var mv_left = () => {
+        socket.emit('left_UI', 'stop', (response) => {
+          console.log(response.status);
+        });
+      }
+
+      var mv_right = () => {
+        socket.emit('right_UI', 'stop', (response) => {
+          console.log(response.status);
+        });
+      }
+
+      var mv_backwards = () => {
+        socket.emit('backwards_UI', 'stop', (response) => {
+          console.log(response.status);
+        });
+      }
+
+      var stop = () => {
+        socket.emit('stop_UI', 'stop', (response) => {
+          console.log(response.status);
+        });
+      }
 
       var mv_forward = () => {
         socket.emit('forward_UI', 'fwd', (response) => {

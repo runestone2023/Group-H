@@ -1,7 +1,11 @@
 import socketio
-from clientROBOT import fwd, listen
+import socket
 
-# standard Python
+robot_host = "192.168.2.2"  # as both code is running on same pc
+robot_port = 5000  # socket server port number
+robot_socket = socket.socket()  # instantiate
+robot_socket.connect((robot_host, robot_port))  # connect to the server
+
 sio = socketio.Client()
 
 @sio.event
@@ -12,10 +16,32 @@ def connect():
 @sio.on('forward_robot')
 def on_forward_robot(data):
     print(data)
-    fwd()
-    msg = listen()
-    print("msg from robot '%s'" %format(msg[0]))
+    robot_socket.send("f".encode())  # send message
+    data = robot_socket.recv(1024).decode()  # receive response
 
+@sio.on('left_robot')
+def on_stop_robot(data):
+    print(data)
+    robot_socket.send("l".encode())  # send message
+    data = robot_socket.recv(1024).decode()  # receive response
+
+@sio.on('right_robot')
+def on_stop_robot(data):
+    print(data)
+    robot_socket.send("r".encode())  # send message
+    data = robot_socket.recv(1024).decode()  # receive response
+
+@sio.on('backwards_robot')
+def on_stop_robot(data):
+    print(data)
+    robot_socket.send("b".encode())  # send message
+    data = robot_socket.recv(1024).decode()  # receive response
+
+@sio.on('stop_robot')
+def on_stop_robot(data):
+    print(data)
+    robot_socket.send("s".encode())  # send message
+    data = robot_socket.recv(1024).decode()  # receive response
 
 @sio.on('serverMsg')
 def on_serverMsg(data):
