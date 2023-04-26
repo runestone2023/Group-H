@@ -46,9 +46,10 @@ while True:
       robot.drive(200, 0)
     elif data == "l":
       print("move left!")
-      left_motor.run(200)
+      robot.drive(0,200)
     elif  data == "r":
-      right_motor.run(200)
+      print("move right!")
+      robot.drive(0,-200)
     elif data == "b":
       print("move backwards")
       robot.drive(-200, 0)
