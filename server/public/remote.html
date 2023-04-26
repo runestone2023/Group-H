@@ -1,0 +1,47 @@
+<html>
+<! -- hello -->
+<head>        
+   	<title>Remote</title>
+   	<link href="remote.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+   	<script src="remote.js"></script>
+</head> 
+
+<body onkeydown="keyPressInput(event)" onkeyup="keyReleaseRecolour(event)">
+
+	<! -- Testing output -->
+	<p id="direct_demo"></p>
+	<p id="speed_demo"></p>
+
+		<!-- =============Range Slider for speed==============================================-->
+		<div class='box_row'>
+	
+			<div class="slidecontainer">
+				<p align="center">Speed: <span id="speed">50</span></p>
+				<input type="range" min="0" max="100" value="50" class="slider" id="myRange" step="5" oninput="sliderUpdate()">
+			</div>
+		</div>
+
+	<!-- ================================================================================== -->
+	<div align="center" id='box_outer'>
+		<!-- =================Direction Buttons=================================================== -->
+		<div class='box_row'>
+			<input  class="button" id="f_button" type="submit" onmousedown="buttonPressInput('f_button', 'f')" onmouseup="buttonReleaseInput('f_button')" value="FWD"/>
+		</div>
+		<br />
+		<div class='box_row'>
+			<input class="button" id="l_button" style="float:left" type="submit" onmousedown="buttonPressInput('l_button', 'l')" onmouseup="buttonReleaseInput('l_button')" value="TURN LEFT"/>
+			<input  class="button" id="r_button" style="float:right" type="submit" onmousedown="buttonPressInput('r_button', 'r')" onmouseup="buttonReleaseInput('r_button')" value="TURN RIGHT"/>
+		</div>
+		<br />
+		<div class='box_row'>
+				<input  class="button" id="b_button" type="submit" onmousedown="buttonPressInput('b_button', 'b')" onmouseup="buttonReleaseInput('b_button')" value="BACK"/>
+		</div>
+		<!-- ================================================================================= -->
+
+		<br><br>
+
+	</div>
+
+</body>
+</html>

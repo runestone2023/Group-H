@@ -43,7 +43,7 @@ while True:
     data = conn.recv(1024).decode()
     if data == "f":
       print("move forward")
-      robot.drive(200, 0)
+      robot.drive(400, 0)
     elif data == "l":
       print("move left!")
       robot.drive(0,200)
@@ -52,7 +52,7 @@ while True:
       robot.drive(0,-200)
     elif data == "b":
       print("move backwards")
-      robot.drive(-200, 0)
+      robot.drive(-400, 0)
     elif data == "s":
       robot.stop()
       print("stop!")
