@@ -101,18 +101,22 @@ function buttonReleaseInput(buttonID){
 function button_direction(direction){
     let text = "direction: ";
     document.getElementById("direct_demo").innerHTML = text + direction;
-    
     switch (direction) {
       case 'f':
         mv_forward();
+        break
       case 'l':
         mv_left();
+        break
       case 'r':
         mv_right();
+        break
       case 'b':
         mv_backwards();
+        break
       case 's': 
         stop();
+        break
     }
 }
 
