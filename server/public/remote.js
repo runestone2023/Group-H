@@ -52,21 +52,22 @@ function sliderUpdate(){
 // Colours buttons like clicking would.
 function keyPressInput(event) {
     event.preventDefault();
-    let key = event.key;
-
-    // allow steering via arrow keys or WASD
-    if (key == "ArrowDown" || key == "s" || key == "S") {
-        document.getElementById("b_button").style.backgroundColor = "#1ad1ff";
-        button_direction('b');
-    } else if (key == "ArrowUp" || key == "w" || key == "W") {
-        document.getElementById("f_button").style.backgroundColor = "#1ad1ff";
-        button_direction('f');
-    } else if (key == "ArrowLeft" || key == "a"|| key == "A") {
-        document.getElementById("l_button").style.backgroundColor = "#1ad1ff";
-        button_direction('l');
-    } else if (key == "ArrowRight" || key == "d"|| key == "D") {
-        document.getElementById("r_button").style.backgroundColor = "#1ad1ff";
-        button_direction('r');
+    if(!event.repeat){
+      let key = event.key;
+      // allow steering via arrow keys or WASD
+      if (key == "ArrowDown" || key == "s" || key == "S") {
+          document.getElementById("b_button").style.backgroundColor = "#1ad1ff";
+          button_direction('b');
+      } else if (key == "ArrowUp" || key == "w" || key == "W") {
+          document.getElementById("f_button").style.backgroundColor = "#1ad1ff";
+          button_direction('f');
+      } else if (key == "ArrowLeft" || key == "a"|| key == "A") {
+          document.getElementById("l_button").style.backgroundColor = "#1ad1ff";
+          button_direction('l');
+      } else if (key == "ArrowRight" || key == "d"|| key == "D") {
+          document.getElementById("r_button").style.backgroundColor = "#1ad1ff";
+          button_direction('r');
+      }
     }
 }
 
