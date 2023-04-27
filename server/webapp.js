@@ -1,5 +1,4 @@
 var express = require('express');
-var fs = require('fs');
 var app = express();
 var serv = require('http').Server(app);
 
