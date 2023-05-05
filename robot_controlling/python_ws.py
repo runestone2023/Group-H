@@ -1,7 +1,8 @@
 import socketio
 import socket
 
-robot_host = "192.168.2.2"  # as both code is running on same pc
+#robot_host = "192.168.2.2"
+robot_host = "169.254.178.31"
 robot_port = 5000  # socket server port number
 robot_socket = socket.socket()  # instantiate
 robot_socket.connect((robot_host, robot_port))  # connect to the server
