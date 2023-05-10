@@ -30,6 +30,7 @@ RIGHT = 4
 head = UP 
 
 for i in pos_list:
+    print(i)
     #get pos to go
     curPosX = i[0]
     curPosY = i[1]

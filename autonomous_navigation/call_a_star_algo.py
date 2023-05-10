@@ -3,14 +3,15 @@ import os
 import time
 import csv
 import json
-from PIL import Image
+# from PIL import Image
 from numpy import asarray
+from output2commands.csv2json import csv2json
    
 
 
 if __name__ == "__main__":
     # read map to pass to the a star algorithm
-    image = Image.open('obstacle_course_images/map_1.png')
+    # image = Image.open('obstacle_course_images/map_1.png')
 
     # convert to numpy array for iteration over image
     array_map = asarray(image)
@@ -100,16 +101,8 @@ if __name__ == "__main__":
     if os.path.isfile(path_file):
         # read file
         print('reading file... \n')
-        with open(path_file, newline='') as csvfile:
+        csv2json(path_file, 'output2commands\position.json')
 
-            pathreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            count = sum(1 for _ in pathreader)
-            print('length is ' + str(count))
-
-            csvfile.seek(0)
-            pathreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            for row in pathreader:
-                print('x:' + row[0] + ' y:' + row[1])
             
             # transform it into a difference output
     else:
