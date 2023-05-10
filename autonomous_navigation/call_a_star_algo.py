@@ -3,15 +3,18 @@ import os
 import time
 import csv
 import json
-# from PIL import Image
+from PIL import Image
 from numpy import asarray
-from output2commands.csv2json import csv2json
+# from output2commands.csv2json import csv2json
+# import output2commands.main as out
+# import autonomous_navigation
+import output2commands
    
 
 
 if __name__ == "__main__":
     # read map to pass to the a star algorithm
-    # image = Image.open('obstacle_course_images/map_1.png')
+    image = Image.open('obstacle_course_images/map_1.png')
 
     # convert to numpy array for iteration over image
     array_map = asarray(image)
@@ -99,11 +102,14 @@ if __name__ == "__main__":
         time.sleep(0.1)
 
     if os.path.isfile(path_file):
-        # read file
+        # transfer to json
         print('reading file... \n')
-        csv2json(path_file, 'output2commands\position.json')
+        output2commands.csv2json.csv2json(path_file, 'output2commands/position.json')
+
+        # call main.py 
+        # subprocess.call('python3 output2commands/main.py', shell=True)
+        output2commands.main
 
             
-            # transform it into a difference output
     else:
         raise ValueError("%s isn't a file!" % path_file)

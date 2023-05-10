@@ -4,7 +4,8 @@ Need to convert the output from type .csv to type .json
 '''
 
 from pybricks.hubs import EV3Brick
-from robot import *
+# from robot import *
+from output2commands.robot import *
 import json
 
 ev3 = EV3Brick()
@@ -14,7 +15,7 @@ robot = Robot(l_motor_port=Port.A, r_motor_port=Port.B,
                 tile_len = 230, # 23cm, longest side of the robot
                 motor_direction=Direction.COUNTERCLOCKWISE)
 #read file
-json_file = open('position.json', 'r')
+json_file = open('output2commands/position.json', 'r')
 json_data = json_file.read()
 
 #parse
