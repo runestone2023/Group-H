@@ -3,12 +3,17 @@
 <head>        
    	<title>Remote</title>
    	<link href="remote.css" rel="stylesheet" type="text/css">
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-   	<script src="remote.js"></script>
+     <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+     <script src="/socket.io/socket.io.js" defer></script>
+     <script src="script.js" defer></script>
+     <script src="remote.js"></script>
+     <script>
+      const ROOM_ID = "ROOM"
+     </script>
 </head> 
 
 <body onkeydown="keyPressInput(event)" onkeyup="keyReleaseRecolour(event)">
-
+  <div id="video-grid"></div>
 	<! -- Testing output -->
 	<p id="direct_demo"></p>
 	<p id="speed_demo"></p>

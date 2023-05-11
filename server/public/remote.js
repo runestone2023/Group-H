@@ -1,7 +1,7 @@
 // --------- handles different input types keyboard and mouse, calls integration with robot control ----------
 
 // socket functionality
-var socket = io();
+// var socket = io();
 
 var mv_left = () => {
   socket.emit('left_UI', 'lft', (response) => {

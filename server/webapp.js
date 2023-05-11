@@ -1,4 +1,5 @@
 var express = require('express');
+const { ExpressPeerServer } = require("peer")
 var app = express();
 var serv = require('http').Server(app);
 
@@ -11,12 +12,15 @@ app.get('/', (req, res) => {
  
 serv.listen(3000);
 
+const peerServer = ExpressPeerServer(serv, {
+	path: "/peerjs",
+});
+
+app.use("/", peerServer);
+
 console.log("Server started.");
 
 //////////////////////////// SOCKETS ////////////////////////////
-
-// var ROOMS = []
-// var roomCounter = 0;
 
 var robot = null;
 
@@ -33,17 +37,19 @@ io.on('connection', (socket) => {
 
 	console.log('socket connection');
 
+  socket.on('join-room', (roomId, userId) => {
+    socket.join(roomId)
+    socket.to(roomId).emit('user-connected', userId)
+
+    socket.on('disconnect', () => {
+      socket.to(roomId).emit('user-disconnected', userId)
+    })
+  })
+
   socket.on('message', (msg) => {
     if(msg == 'UI'){
-      // var room = Math.random();
-      // ROOMS.push(room);
-      // socket.emit('serverMsg', `joined ${room}`)
     }
     if(msg == 'Robot'){
-      // var room = ROOMS.pop()
-      // socket.join(room);
-      // socket.emit('serverMsg', `joined ${room}`);
-
       robot = socket.id
     }
   });
