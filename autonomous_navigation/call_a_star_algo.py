@@ -5,6 +5,10 @@ import csv
 import json
 from PIL import Image
 from numpy import asarray
+# from output2commands.csv2json import csv2json
+# import output2commands.main as out
+# import autonomous_navigation
+import output2commands
    
 
 
@@ -98,19 +102,14 @@ if __name__ == "__main__":
         time.sleep(0.1)
 
     if os.path.isfile(path_file):
-        # read file
+        # transfer to json
         print('reading file... \n')
-        with open(path_file, newline='') as csvfile:
+        output2commands.csv2json.csv2json(path_file, 'output2commands/position.json')
 
-            pathreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            count = sum(1 for _ in pathreader)
-            print('length is ' + str(count))
+        # call main.py 
+        # subprocess.call('python3 output2commands/main.py', shell=True)
+        output2commands.main
 
-            csvfile.seek(0)
-            pathreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            for row in pathreader:
-                print('x:' + row[0] + ' y:' + row[1])
             
-            # transform it into a difference output
     else:
         raise ValueError("%s isn't a file!" % path_file)
