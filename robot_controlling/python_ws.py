@@ -2,7 +2,7 @@ import socketio
 import socket
 
 #robot_host = "192.168.2.2"
-robot_host = "169.254.178.31"
+robot_host = "169.254.85.82"
 robot_port = 5000  # socket server port number
 robot_socket = socket.socket()  # instantiate
 robot_socket.connect((robot_host, robot_port))  # connect to the server
@@ -54,4 +54,4 @@ def catch_all(event, data):
 
 
 if __name__ == '__main__':
-  sio.connect('http://localhost:3000')
+  sio.connect('https://robotserver.live/3000')
