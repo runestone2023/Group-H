@@ -28,7 +28,7 @@ UP = 1
 DOWN = 2
 LEFT = 3
 RIGHT = 4
-head = UP 
+head = UP # place robot with its head up
 
 for i in pos_list:
     print(i)
@@ -46,31 +46,34 @@ for i in pos_list:
         nextPosX = pos_list[count+1][0]
         nextPosY = pos_list[count+1][1]
         if head == UP:
-            if nextPosY == curPosY and curPosX > nextPosX: #turn left(head left)
+            if nextPosX == curPosX and curPosY > nextPosY: #turn left(head left)
                 robot.turn_left()
                 head = LEFT
-            if nextPosY == curPosY and curPosX < nextPosX: #turn right(head right)
+            if nextPosX == curPosX and curPosY < nextPosY: #turn right(head right)
                 robot.turn_right()
                 head = RIGHT
+            if nextPosX > curPosX and curPosY == nextPosY: #turn back(head down)
+                robot.turn_back()
+                head = DOWN
         elif head == DOWN:
-            if nextPosY == curPosY and curPosX < nextPosX: #turn left(head left)
+            if nextPosX == curPosX and curPosY < nextPosY: #turn left(head left)
                 robot.turn_left()
                 head = LEFT
-            if nextPosY == curPosY and curPosX > nextPosX: #turn right(head right)
+            if nextPosX == curPosX and curPosY > nextPosY: #turn right(head right)
                 robot.turn_right()
                 head = RIGHT
         elif head == LEFT:
-            if nextPosX == curPosX and curPosY > nextPosY: #turn right(head up)
+            if nextPosY == curPosY and curPosX > nextPosX: #turn right(head up)
                 robot.turn_right()
                 head = UP
-            if nextPosX == curPosX and curPosY < nextPosY: #turn left(head down)
+            if nextPosY == curPosY and curPosX < nextPosX: #turn left(head down)
                 robot.turn_left()
                 head = DOWN
         elif head == RIGHT:
-            if nextPosX == curPosX and curPosY > nextPosY: #turn left(head up)
+            if nextPosY == curPosY and curPosX > nextPosX: #turn left(head up)
                 robot.turn_left()
                 head = UP
-            if nextPosX == curPosX and curPosY < nextPosY: #turn right(head down)
+            if nextPosY == curPosY and curPosX < nextPosX: #turn right(head down)
                 robot.turn_right()
                 head = DOWN
     count+=1
