@@ -16,6 +16,8 @@ const peerServer = ExpressPeerServer(serv, {
 	path: "/peerjs",
 });
 
+app.enable('trust proxy')
+
 app.use("/", peerServer);
 
 console.log("Server started.");
