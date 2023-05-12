@@ -3,9 +3,9 @@ const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
   host: 'localhost',
   port: '3000',
-  path: '/peerjs'
+  path: '/peerjs',
+  proxied: true
 })
-//const myPeer = new Peer();
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
@@ -34,7 +34,6 @@ socket.on('user-disconnected', userId => {
 
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id)
-  console.log(id)
 })
 
 function connectToNewUser(userId, stream) {
