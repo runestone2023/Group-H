@@ -28,7 +28,7 @@ UP = 1
 DOWN = 2
 LEFT = 3
 RIGHT = 4
-head = UP 
+head = UP # place robot with its head up
 
 for i in pos_list:
     print(i)
@@ -52,6 +52,9 @@ for i in pos_list:
             if nextPosY == curPosY and curPosX < nextPosX: #turn right(head right)
                 robot.turn_right()
                 head = RIGHT
+            if nextPosY > curPosY and curPosX == nextPosX: #turn back(head down)
+                robot.turn_back()
+                head = DOWN
         elif head == DOWN:
             if nextPosY == curPosY and curPosX < nextPosX: #turn left(head left)
                 robot.turn_left()
