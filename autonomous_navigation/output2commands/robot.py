@@ -40,9 +40,11 @@ class Robot(DriveBase):
         return l, r
 
     def forward(self):
+        print("Going forward")
         self.straight(self.tile_len) 
 
     def backward(self):
+        print("Going backward")
         self.straight(-1 * self.tile_len) 
 
     def turn_right(self):
@@ -54,6 +56,7 @@ class Robot(DriveBase):
         self.turn(-90)
 
     def turn_back(self):
+        print("Turning back")
         self.turn(180)
         
 

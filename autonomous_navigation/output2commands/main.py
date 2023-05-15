@@ -7,6 +7,8 @@ from pybricks.hubs import EV3Brick
 # from robot import *
 from output2commands.robot import *
 import json
+import csv
+
 
 ev3 = EV3Brick()
 robot = Robot(l_motor_port=Port.A, r_motor_port=Port.B,
@@ -30,7 +32,7 @@ LEFT = 3
 RIGHT = 4
 head = UP # place robot with its head up
 
-for i in pos_list:
+for enum, i  in enumerate(pos_list):
     print(i)
     #get pos to go
     curPosX = i[0]
@@ -38,8 +40,8 @@ for i in pos_list:
 
     #moving robot by curPos and prevPos
     #Go staight 
-    if count != 0:  #stay still at first position
-        robot.forward()
+    # if count != 0:  #stay still at first position
+    robot.forward()
     
     #check next step to decide turn or not
     if count < len(pos_list) - 1:  #last position not check anymore
@@ -57,10 +59,10 @@ for i in pos_list:
                 head = DOWN
         elif head == DOWN:
             if nextPosX == curPosX and curPosY < nextPosY: #turn left(head left)
-                robot.turn_left()
+                robot.turn_right()
                 head = LEFT
             if nextPosX == curPosX and curPosY > nextPosY: #turn right(head right)
-                robot.turn_right()
+                robot.turn_left()
                 head = RIGHT
         elif head == LEFT:
             if nextPosY == curPosY and curPosX > nextPosX: #turn right(head up)
@@ -77,3 +79,4 @@ for i in pos_list:
                 robot.turn_right()
                 head = DOWN
     count+=1
+
