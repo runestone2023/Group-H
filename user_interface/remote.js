@@ -15,16 +15,16 @@ function keyPressInput(event) {
 
     // allow steering via arrow keys or WASD
     if (key == "ArrowDown" || key == "s" || key == "S") {
-        document.getElementById("b_button").style.backgroundColor = "#1ad1ff";
+        document.getElementById("b_button").style.backgroundColor = "rgba(6, 51, 56, 0.71)";
         button_direction('b');
     } else if (key == "ArrowUp" || key == "w" || key == "W") {
-        document.getElementById("f_button").style.backgroundColor = "#1ad1ff";
+        document.getElementById("f_button").style.backgroundColor = "rgba(6, 51, 56, 0.71)";
         button_direction('f');
     } else if (key == "ArrowLeft" || key == "a"|| key == "A") {
-        document.getElementById("l_button").style.backgroundColor = "#1ad1ff";
+        document.getElementById("l_button").style.backgroundColor = "rgba(6, 51, 56, 0.71)";
         button_direction('l');
     } else if (key == "ArrowRight" || key == "d"|| key == "D") {
-        document.getElementById("r_button").style.backgroundColor = "#1ad1ff";
+        document.getElementById("r_button").style.backgroundColor = "rgba(6, 51, 56, 0.71)";
         button_direction('r');
     }
 }
@@ -34,7 +34,7 @@ function keyReleaseRecolour(event){
     let c = document.getElementsByClassName("button");
     for (let i=0; i<c.length; i++) {
         if (c[i].id != "s_button"){
-            c[i].style.backgroundColor = "#3709ef";
+            c[i].style.backgroundColor = "#0a5b68b4";
         }
     }
 
@@ -43,13 +43,18 @@ function keyReleaseRecolour(event){
 
 // when a button is held down by mouse, colour it lighter and start movement in the corresponding direction
 function buttonPressInput(buttonID, direction){
-    document.getElementById(buttonID).style.backgroundColor = "#1ad1ff";
+    document.getElementById(buttonID).style.backgroundColor = "rgba(6, 51, 56, 0.71)";
+    if(direction=="autonomous" || direction=="manual"){
+        switch_control_mode(direction);
+    } else if (direction=="path"){
+        find_path();
+    }
     button_direction(direction);
 }
 
 // when a button is released by mouse, colour it darker and stop movement
 function buttonReleaseInput(buttonID){
-    document.getElementById(buttonID).style.backgroundColor = "#3709ef";
+    document.getElementById(buttonID).style.backgroundColor = "#0a5b68b4";
     button_direction('s');
 }
 
@@ -66,4 +71,15 @@ function button_direction(direction){
 function speed_slider(new_speed){
     let text = "speed: ";
     document.getElementById("speed_demo").innerHTML = text + new_speed;
+}
+
+// toggle manual / autonomous control (default should be control)
+function switch_control_mode(new_mode){
+    document.getElementById("control_mode_demo").innerHTML = new_mode;
+}
+
+// execute AStar
+function find_path(){
+    document.getElementById("control_mode_demo").innerHTML = "started AStar pathing";
+
 }
