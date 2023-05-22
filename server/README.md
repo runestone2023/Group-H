@@ -1,3 +1,2 @@
-requires express and socket io<br>
-npm install express<br>
-npm install socket<br>
+requires express, ws, socket io and peerjs<br>
+npm install express socket ws peer<br>
