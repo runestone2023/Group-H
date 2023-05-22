@@ -12,7 +12,8 @@ window.navigator.mediaDevices.getUserMedia({
   addVideoStream(myVideo, stream)
 
   const myPeer = new Peer(undefined, {
-    host: 'robotserver.live',
+    host: 'localhost',
+    port: 3000,
     path: '/peerjs',
     proxied: true
   })

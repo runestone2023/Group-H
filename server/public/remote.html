@@ -1,51 +1,73 @@
 <html>
-<! -- hello -->
+<!-- hello -->
 <head>        
    	<title>Remote</title>
    	<link href="remote.css" rel="stylesheet" type="text/css">
-     <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
-     <script src="/socket.io/socket.io.js" defer></script>
-     <script src="script.js" defer></script>
-     <script src="remote.js"></script>
-     <script>
-      const ROOM_ID = "ROOM"
-     </script>
+	<script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+	<script src="/socket.io/socket.io.js" defer></script>
+	<script src="script.js" defer></script>
+   	<script src="remote.js"></script>
+	<script src="bundle.js" charset="utf-8"></script>
+	<script>
+		const ROOM_ID = "ROOM"
+	</script>
 </head> 
 
 <body onkeydown="keyPressInput(event)" onkeyup="keyReleaseRecolour(event)">
-  <div id="video-grid"></div>
-	<! -- Testing output -->
+	<!-- =============Video conferencing==============================================-->
+	<div id="video-grid"></div>
+
+	<!-- ========================== Testing output ==========================-->
 	<p id="direct_demo"></p>
 	<p id="speed_demo"></p>
+	<p id="control_mode_demo"></p>
+	<p id="test_default_mode" onclick="get_control_mode()"> Test here</p>
 
-		<!-- =============Range Slider for speed==============================================-->
-		<div class='box_row'>
-	
-			<div class="slidecontainer">
-				<p align="center">Speed: <span id="speed">50</span></p>
-				<input type="range" min="0" max="100" value="50" class="slider" id="myRange" step="5" oninput="sliderUpdate()">
+	<div class="controls">
+
+		<!-- ================================================================================== -->
+		<div align="center" id='box_outer'>
+
+			<div align="left" id='box_inner1'>
+			<!-- =================Direction Buttons=================================================== -->
+			<br />
+			<div class='box_row'>
+				<input  class="button" id="f_button" type="submit" onmousedown="buttonPressInput('f_button', 'f')" onmouseup="buttonReleaseInput('f_button')" value="FWD"/>
 			</div>
-		</div>
+			<br />
+			<div class='box_row'>
+				<input class="button" id="l_button" style="float:left" type="submit" onmousedown="buttonPressInput('l_button', 'l')" onmouseup="buttonReleaseInput('l_button')" value="TURN LEFT"/>
+				<input  class="button" id="r_button" style="float:right" type="submit" onmousedown="buttonPressInput('r_button', 'r')" onmouseup="buttonReleaseInput('r_button')" value="TURN RIGHT"/>
+			</div>
+			<br />
+			<div class='box_row'>
+					<input  class="button" id="b_button" type="submit" onmousedown="buttonPressInput('b_button', 'b')" onmouseup="buttonReleaseInput('b_button')" value="BACK"/>
+			</div>
+			<!-- ================================================================================= -->
+			<br><br>
+		   </div>
+		   <div align="right" id='box_inner2'>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<div class='box_row'>
+				<input class="button" id="a_button" style="float:center" type="submit" onmousedown="buttonPressInput('a_button', 'autonomous')" onmouseup="buttonReleaseInput('a_button')" value="AUTONOMOUS"/>
+				<input  class="button" id="m_button" style="float:center" type="submit" onmousedown="buttonPressInput('m_button', 'manual')" onmouseup="buttonReleaseInput('m_button')" value="MANUAL"/>
 
-	<!-- ================================================================================== -->
-	<div align="center" id='box_outer'>
-		<!-- =================Direction Buttons=================================================== -->
-		<div class='box_row'>
-			<input  class="button" id="f_button" type="submit" onmousedown="buttonPressInput('f_button', 'f')" onmouseup="buttonReleaseInput('f_button')" value="FWD"/>
-		</div>
-		<br />
-		<div class='box_row'>
-			<input class="button" id="l_button" style="float:left" type="submit" onmousedown="buttonPressInput('l_button', 'l')" onmouseup="buttonReleaseInput('l_button')" value="TURN LEFT"/>
-			<input  class="button" id="r_button" style="float:right" type="submit" onmousedown="buttonPressInput('r_button', 'r')" onmouseup="buttonReleaseInput('r_button')" value="TURN RIGHT"/>
-		</div>
-		<br />
-		<div class='box_row'>
-				<input  class="button" id="b_button" type="submit" onmousedown="buttonPressInput('b_button', 'b')" onmouseup="buttonReleaseInput('b_button')" value="BACK"/>
-		</div>
-		<!-- ================================================================================= -->
+			</div>
+			<br/>
+			<br/>
+			<br/>
+			<div class='box_row'>
+				<input  class="button" id="best_button" style="float:center" type="submit" onmousedown="buttonPressInput('best_button', 'path')" onmouseup="buttonReleaseInput('best_button')" value="FIND PATH"/>
+			</div>
+			<br/>
+			<br/>
+		   </div>
 
-		<br><br>
-
+		</div>
 	</div>
 
 </body>
